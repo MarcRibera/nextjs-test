@@ -10,7 +10,7 @@ export default function Form() {
 
   return (
     <>
-    <h4>In this section you can change the title project</h4>
+    <h4>In this section you can change the project title</h4>
     <form onSubmit={registerUser}>
       <input
         className="input"

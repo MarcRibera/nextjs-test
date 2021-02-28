@@ -8,7 +8,7 @@ import '../styles/globals.scss'
 export default class MyApp extends App {
   state = {
     user: null,
-    pageTitle:'Next.js Test Project from _app'
+    pageTitle:'Next.js Test Project'
   };
 
   componentDidMount = () => {

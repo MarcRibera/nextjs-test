@@ -1,5 +1,4 @@
 const users = ( { users } ) => {
-  console.log(users);
   return (
     <div>
       <h1> Data Fetching (getStaticProps) </h1>
