@@ -25,6 +25,11 @@ const Nav = ({ children }) => {
           </Link>
         </li>
         <li>
+          <Link activeClassName={navStyles.selected} href="/random_cats">
+            <span> Random Cats </span>
+          </Link>
+        </li>
+        <li>
           <Link activeClassName={navStyles.selected} href="/settings">
             <span >Settings</span>
           </Link>
