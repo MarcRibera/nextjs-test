@@ -5,6 +5,7 @@ import navStyles from '../styles/Nav.module.scss';
 
 const Nav = ({ children }) => {
   const { user, signOut } = useContext(AppContext);
+
   return (
     <nav className={navStyles.nav}>
       <ul>
@@ -40,8 +41,7 @@ const Nav = ({ children }) => {
           Sign Out
         </button>
       </div>
-  </nav>
-
+    </nav>
   )
 }
 

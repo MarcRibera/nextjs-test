@@ -53,7 +53,15 @@ const dashboard = () => {
   }, []);
 
   async function getData() {
-    const res = await fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-10&api_key=i9kr4lTxq7qRJjn032dF9yhmgmQ7nrr8giXfq9Dy')
+    const url = new URL('https://api.nasa.gov/neo/rest/v1/feed')
+    const params = {
+      start_date:"2015-09-07",
+      end_date:'2015-09-12',
+      api_key:'i9kr4lTxq7qRJjn032dF9yhmgmQ7nrr8giXfq9Dy'
+    }
+    url.search = new URLSearchParams(params).toString();
+
+    const res = await fetch(url)
     const data = await res.json();
     buildData(data)
   }
@@ -65,9 +73,7 @@ const dashboard = () => {
     for (let date in nearEarthObjects ) {
       chartData.push({date:date, value: nearEarthObjects[date].length})
     }
-    console.log('chartData',chartData);
-    setAsteroidsData(chartData)
-
+    setAsteroidsData(chartData);
   }
 
   const wrapperStyle = {
@@ -119,13 +125,13 @@ const dashboard = () => {
             margin={chartMargins}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
+            <YAxis />
             <Tooltip />
             <Legend verticalAlign="top" align="right" height={36}/>
             <Bar dataKey="value" fill="#8884d8" />
           </BarChart>
         </ResponsiveContainer>
       </div>
-
     </>
   )
 }
