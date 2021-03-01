@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from '../styles/Random_cats.module.scss'
 
 const RandomCats = ({ }) => {
   const [catUrl, setCatUrl] = useState("");
+  useEffect(() => {
+    getCat();
+    // with empty array as second arg -> useEffect only runs
+    // after the initial render
+ }, []);
+
 
   async function getCat() {
     const res = await fetch('https://aws.random.cat/meow')
-    const resJson = await res.json();
-    setCatUrl(resJson.file)
+    const data = await res.json();
+    setCatUrl(data.file)
   }
 
   return (

@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import AppContext from '../components/AppContext';
 import Link from '../components/ActiveLink';
-//import Link from 'next/link'
 import navStyles from '../styles/Nav.module.scss';
 
 const Nav = ({ children }) => {
